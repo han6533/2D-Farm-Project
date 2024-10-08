@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    
+    [Header("¼ÒÀ¯ÇÑ µ·")] public int Gold;
+
+    [Header("³· Àú³á ¹ã º¯°æ Å¸ÀÌ¸Ó")]public float Timer;
+    [Header("³¯Â¥ Ä«¿îÆ®")]public int DayCount;
 }
