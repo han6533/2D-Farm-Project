@@ -1,11 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     [Header("소유한 돈")] public int Gold;
+    public Text Gold_Text;
 
     [Header("낮 저녁 밤 변경 타이머")]public float Timer;
-    [Header("날짜 카운트")]public int DayCount;
+    [Header("날짜 카운트")]public Text DaysTimeCount;
+    public int Day_Count;
+    public int Hour_Count;
+
+    private void Update()
+    {
+        Gold_Text.text = string.Format("{0:#,###}", Gold) + "원";
+        DaysTimeCount.text = Day_Count + "일  " + Hour_Count + "시";
+
+        Timer += Time.deltaTime;
+        if(Timer >= 40f)
+        {
+            Timer = 0;
+            Hour_Count++;
+            if(Hour_Count >= 24)
+            {
+                Hour_Count = 0;
+                Day_Count++;
+            }
+        }
+    }
 }
