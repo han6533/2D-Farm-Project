@@ -48,14 +48,17 @@ public class Tutorial_Manaer : MonoBehaviour
         TutorialIMG.gameObject.SetActive(true);
         switch (Tutorial_Index)
         {
-            case 0:
+            case 1:
                 Tutorial_str = "반갑습니다. " + GameManager.Instance.FarmNameName + "님" + " 환영합니다.\n";
                 break;
-            case 1:
-                Tutorial_str = "";
+            case 2:
+                Tutorial_str = "이곳이 앞으로 사용하시게 될 터입니다.\n땅을 구매해 밭을 일궈주세요.";
+                break;
+            case 3:
+                TutorialIMG.gameObject.SetActive(false);
                 break;
         }
-        Typing_Text();
+        StartCoroutine(Typing_Text());
     }
 
     public IEnumerator Typing_Text()
@@ -65,7 +68,7 @@ public class Tutorial_Manaer : MonoBehaviour
         for (int i = 0; i <= Tutorial_str.Length; i++)
         {
             TutorialText.text = Tutorial_str.Substring(0, i);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.1f);
         }
     }
 }

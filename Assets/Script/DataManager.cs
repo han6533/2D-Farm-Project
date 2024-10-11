@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 [Serializable]
 public class Data
@@ -32,6 +33,7 @@ public class DataManager : MonoBehaviour
         string path = Path.Combine(Application.persistentDataPath, "GameData.json");
         File.WriteAllText(path, GameData);
 
+        SceneManager.LoadScene("InGameScene");
         //LoadingScene.LoadScene(SceneManager.GetActiveScene().name);
         //LoadingScene.LoadScene(data.SceneName);
     }
