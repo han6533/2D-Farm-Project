@@ -25,21 +25,39 @@ public class PlayerUIManager : MonoBehaviour
         }
     }
 
+    public Image[] PlayerBox;
+    
     public void PlayerInfoBtn()
     {
+        PlayerBox[0].gameObject.SetActive(true);
+        PlayerBox[1].gameObject.SetActive(false);
+        PlayerBox[2].gameObject.SetActive(false);
+        PlayerBox[3].gameObject.SetActive(false);
         SoundManager.Instance.SFXPlay("Btn", SoundManager.Instance.ButtonSFX);
     }
     public void BookBtn()
     {
+        PlayerBox[0].gameObject.SetActive(false);
+        PlayerBox[1].gameObject.SetActive(true);
+        PlayerBox[2].gameObject.SetActive(false);
+        PlayerBox[3].gameObject.SetActive(false);
         SoundManager.Instance.SFXPlay("Btn", SoundManager.Instance.ButtonSFX);
     }
     public void UpgradeBtn()
     {
+        PlayerBox[0].gameObject.SetActive(true);
+        PlayerBox[1].gameObject.SetActive(false);
+        PlayerBox[2].gameObject.SetActive(true);
+        PlayerBox[3].gameObject.SetActive(false);
         SoundManager.Instance.SFXPlay("Btn", SoundManager.Instance.ButtonSFX);
     }
 
     public void ShopBtn()
     {
+        PlayerBox[0].gameObject.SetActive(false);
+        PlayerBox[1].gameObject.SetActive(false);
+        PlayerBox[2].gameObject.SetActive(false);
+        PlayerBox[3].gameObject.SetActive(true);
         SoundManager.Instance.SFXPlay("Btn", SoundManager.Instance.ButtonSFX);
     }
 }
