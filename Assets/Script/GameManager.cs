@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
+
+    [Header("≥Û¿Â ¿Ã∏ß")] public Text FarmNameText;
+    public string FarmNameName;
+
     [Header("º“¿Ø«— µ∑")] public int Gold;
     public Text Gold_Text;
 
@@ -13,6 +18,14 @@ public class GameManager : MonoBehaviour
     public int Day_Count;
     public int Hour_Count;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
+    private void Start()
+    {
+        FarmNameText.text = DataManager.instance.data.FarmName + " ≥Û¿Â";
+    }
     private void Update()
     {
         Gold_Text.text = string.Format("{0:#,###}", Gold) + "ø¯";
