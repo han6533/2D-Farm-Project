@@ -12,7 +12,6 @@ public class SoundManager : MonoBehaviour
     //[Header("?? ?????")] public AudioClip Door;
 
     //public AudioClip TextSFX;
-    public AudioClip PlayerDie_Spider;
     public AudioClip ButtonSFX;
 
     [Header("BGM")] public AudioClip[] BgmClip;
@@ -65,30 +64,30 @@ public class SoundManager : MonoBehaviour
         Destroy(go, clip.length);
     }
 
-    public void SetMasterVolme(float MasterVolume)
-    {
-        //MasterVolume = Master_VoumeSlider.value += 0.1f;
-        //mixer.SetFloat("MasterSound", Mathf.Log(MasterVolume) * 20);
-        PlayerPrefs.SetFloat("MasterSound", MasterVolume);
-    }
-    public void SetBGMVolme(float BGMVolume)
-    {
-        //BGMVolume = BGM_VolumeSlider.value += 0.1f;
-        //mixer.SetFloat("BGMSound", Mathf.Log(BGMVolume) * 20);
-        PlayerPrefs.SetFloat("BGMSound", BGMVolume);
-    }
+    //public void SetMasterVolme(float MasterVolume)
+    //{
+    //    //MasterVolume = Master_VoumeSlider.value += 0.1f;
+    //    //mixer.SetFloat("MasterSound", Mathf.Log(MasterVolume) * 20);
+    //    PlayerPrefs.SetFloat("MasterSound", MasterVolume);
+    //}
+    //public void SetBGMVolme(float BGMVolume)
+    //{
+    //    //BGMVolume = BGM_VolumeSlider.value += 0.1f;
+    //    //mixer.SetFloat("BGMSound", Mathf.Log(BGMVolume) * 20);
+    //    PlayerPrefs.SetFloat("BGMSound", BGMVolume);
+    //}
     //public void SetBGMVolmeDown()
     //{
     //    float BGMVolume = BGM_VolumeSlider.value -= 0.1f;
     //    mixer.SetFloat("BGMSound", Mathf.Log(BGMVolume) * 20);
     //    PlayerPrefs.SetFloat("BGMSound", BGMVolume);
     //}
-    public void SetSFXVolme(float SFXVolume)
-    {
-        //SFXVolume = SFX_VolumeSlider.value += 0.1f;
-        //mixer.SetFloat("SFXSound", Mathf.Log(SFXVolume) * 20);
-        PlayerPrefs.SetFloat("SFXSound", SFXVolume);
-    }
+    //public void SetSFXVolme(float SFXVolume)
+    //{
+    //    //SFXVolume = SFX_VolumeSlider.value += 0.1f;
+    //    //mixer.SetFloat("SFXSound", Mathf.Log(SFXVolume) * 20);
+    //    PlayerPrefs.SetFloat("SFXSound", SFXVolume);
+    //}
     //public void SetSFXVolmeDown()
     //{
     //    float SFXVolume = SFX_VolumeSlider.value -= 0.1f;

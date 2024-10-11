@@ -17,7 +17,6 @@ public class GameManager : MonoBehaviour
     [Header("날짜 카운트")]public Text DaysTimeCount;
     public int Day_Count;
     public int Hour_Count;
-
     private void Awake()
     {
         Instance = this;

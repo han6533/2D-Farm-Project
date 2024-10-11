@@ -25,7 +25,8 @@ public class Tutorial_Manaer : MonoBehaviour
     }
     public void NameSettingCompletionBtn()
     {
-        if(FarmNameInputText.text != "" && FarmNameInputText.text == Regex.Replace(FarmNameInputText.text, @"[^1-10a-zA-Z∞°-∆R]", ""))
+        SoundManager.Instance.SFXPlay("Btn", SoundManager.Instance.ButtonSFX);
+        if (FarmNameInputText.text != "" && FarmNameInputText.text == Regex.Replace(FarmNameInputText.text, @"[^0-9a-zA-Z∞°-∆R]", ""))
         {
             GameManager.Instance.FarmNameName = FarmNameInputText.text;
             isFarmNameSetting = true;
@@ -42,27 +43,33 @@ public class Tutorial_Manaer : MonoBehaviour
     public Text TutorialText;
     public int Tutorial_Index;
     public string Tutorial_str;
+    public bool isTyping;
     public void Tutorial()
     {
-        Tutorial_Index++;
-        TutorialIMG.gameObject.SetActive(true);
-        switch (Tutorial_Index)
+        SoundManager.Instance.SFXPlay("Btn", SoundManager.Instance.ButtonSFX);
+        if (!isTyping)
         {
-            case 1:
-                Tutorial_str = "π›∞©Ω¿¥œ¥Ÿ. " + GameManager.Instance.FarmNameName + "¥‘" + " »Øøµ«’¥œ¥Ÿ.\n";
-                break;
-            case 2:
-                Tutorial_str = "¿Ã∞˜¿Ã æ’¿∏∑Œ ªÁøÎ«œΩ√∞‘ µ… ≈Õ¿‘¥œ¥Ÿ.\n∂•¿ª ±∏∏≈«ÿ πÁ¿ª ¿œ±≈¡÷ººø‰.";
-                break;
-            case 3:
-                TutorialIMG.gameObject.SetActive(false);
-                break;
+            Tutorial_Index++;
+            TutorialIMG.gameObject.SetActive(true);
+            switch (Tutorial_Index)
+            {
+                case 1:
+                    Tutorial_str = "π›∞©Ω¿¥œ¥Ÿ. " + GameManager.Instance.FarmNameName + "¥‘" + " »Øøµ«’¥œ¥Ÿ.\n";
+                    break;
+                case 2:
+                    Tutorial_str = "¿Ã∞˜¿Ã æ’¿∏∑Œ ªÁøÎ«œΩ√∞‘ µ… ≈Õ¿‘¥œ¥Ÿ.\n∂•¿ª ±∏∏≈«ÿ πÁ¿ª ¿œ±≈¡÷ººø‰.";
+                    break;
+                case 3:
+                    TutorialIMG.gameObject.SetActive(false);
+                    break;
+            }
+            StartCoroutine(Typing_Text());
         }
-        StartCoroutine(Typing_Text());
     }
 
     public IEnumerator Typing_Text()
     {
+        isTyping = true;
         Debug.Log("ƒ⁄∑Á∆æ Ω««‡");
         TutorialText.text = "";
         for (int i = 0; i <= Tutorial_str.Length; i++)
@@ -70,5 +77,6 @@ public class Tutorial_Manaer : MonoBehaviour
             TutorialText.text = Tutorial_str.Substring(0, i);
             yield return new WaitForSeconds(0.1f);
         }
+        isTyping = false;
     }
 }
