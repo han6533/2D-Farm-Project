@@ -50,7 +50,7 @@ public class DataManager : MonoBehaviour
         data.isFarmNameSetting = Tutorial_Manaer.Instance.isFarmNameSetting;
         data.FarmName = Tutorial_Manaer.Instance.FarmNameInputText.text.ToString();
         Debug.Log(data.FarmName);
-
+         
         string GameData = JsonUtility.ToJson(data, true);
         string path = Path.Combine(Application.persistentDataPath, "GameData.json");
         File.WriteAllText(path, GameData);
