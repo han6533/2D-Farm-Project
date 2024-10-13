@@ -60,6 +60,9 @@ public class Tutorial_Manaer : MonoBehaviour
                     Tutorial_str = "이곳이 앞으로 사용하시게 될 터입니다.\n땅을 구매해 밭을 일궈주세요.";
                     break;
                 case 3:
+                    Tutorial_str = "상점에서 땅을 구매해, 밭을 가꿀 수 있습니다.";
+                    break;
+                case 4:
                     TutorialIMG.gameObject.SetActive(false);
                     break;
             }
