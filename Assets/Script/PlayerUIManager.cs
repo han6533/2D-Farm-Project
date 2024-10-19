@@ -15,14 +15,13 @@ public class PlayerUIManager : MonoBehaviour
         {
             isPlayerUI = false;
             PlayerUIBtn_Text.text = "¾Æ·¡";
-            Player_UI.transform.localPosition = new Vector3(0, -962, 0);
         }
         else if (!isPlayerUI)
         {
             isPlayerUI = true;
             PlayerUIBtn_Text.text = "À§";
-            Player_UI.transform.localPosition = new Vector3(0, -1473, 0);
         }
+        StartCoroutine(Move_PlayerUI());
     }
 
     public Image[] PlayerBox;
@@ -59,5 +58,25 @@ public class PlayerUIManager : MonoBehaviour
         PlayerBox[2].gameObject.SetActive(false);
         PlayerBox[3].gameObject.SetActive(true);
         SoundManager.Instance.SFXPlay("Btn", SoundManager.Instance.ButtonSFX);
+    }
+
+    public Image MapIMG;
+    public float CurTime;
+    public IEnumerator Move_PlayerUI()
+    {
+        Debug.Log("Move_PlayerUI");
+        CurTime = 0f;
+        while (CurTime < 1)
+        {
+            CurTime += 0.03f;
+            yield return new WaitForSeconds(0.001f);
+            //float t = CurPlayerStatusTime / 1;
+            //t = Mathf.Sin(t * Mathf.PI * 0.5f);
+
+            if (isPlayerUI)
+                MapIMG.transform.localPosition = Vector2.Lerp(new Vector2(0, -968), new Vector2(0, -1473), CurTime);
+            if (!isPlayerUI)
+                MapIMG.transform.localPosition = Vector2.Lerp(new Vector2(0, -1473), new Vector2(0, -968), CurTime);
+        }
     }
 }
