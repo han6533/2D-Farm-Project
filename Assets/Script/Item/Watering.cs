@@ -56,6 +56,7 @@ public class Watering : MonoBehaviour
     {
         if(collision.gameObject.name.Contains("Farm"))
         {
+            spray_time = 0;
             isFarmTileTrigger = false;
             Farm_floor = null;
             transform.rotation = Quaternion.Euler(0, 0, 0);
