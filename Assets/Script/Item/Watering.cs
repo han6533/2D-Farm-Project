@@ -6,6 +6,7 @@ public class Watering : MonoBehaviour
 {
     public Transform original_Pos;
 
+    public int Wet_floor_Timer; //밭이 젖는데 걸리는 시간
     //드래그 중
     private void OnMouseDrag()
     {
@@ -26,7 +27,7 @@ public class Watering : MonoBehaviour
         if (isFarmTileTrigger)
         {
             spray_time += Time.deltaTime;
-            if (spray_time >= 2f)
+            if (spray_time >= Wet_floor_Timer)
             {
                 Farm_floor.sprite = Wet_farmSprite;
                 spray_time = 0;
